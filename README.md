@@ -38,3 +38,22 @@ PaaS bezeichnet eine Cloudumgebung, die eine Plattform für die Entwicklung von 
 
 *Software as a Service (SaaS)*
 SaaS bezeichnet ein Distributionsmodell für Anwendungen über den Webbrowser. SaaS wird als Teilbereich des Cloud Computings verstanden, da angeforderte Applikationen nie direkt auf dem Gerät des Nutzers vorhanden sind.
+
+
+**Vagrant**
+Vagrant brauchte ich in diesem Mdoul, um meine Virtuellen Maschienen automatisiert aufzusetzen und den gewünschten Service mit zu installieren. Vagrant ist eine Software, welche in BASH läuft. So kann ein Vagrant File aussehen:
+        Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/xenial64"
+    config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
+    config.vm.synced_folder ".", "/var/www/html"  
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"  
+    end
+    config.vm.provision "shell", inline: <<-SHELL
+    # Packages vom lokalen Server holen
+    # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
+    sudo apt-get update
+    sudo apt-get -y install apache2 
+    SHELL
+    end
+
