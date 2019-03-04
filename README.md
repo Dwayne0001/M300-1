@@ -42,7 +42,7 @@ SaaS bezeichnet ein Distributionsmodell für Anwendungen über den Webbrowser. S
 
 **Vagrant**
 Vagrant brauchte ich in diesem Mdoul, um meine Virtuellen Maschienen automatisiert aufzusetzen und den gewünschten Service mit zu installieren. Vagrant ist eine Software, welche in BASH läuft. So kann ein Vagrant File aussehen:
-        Vagrant.configure(2) do |config|
+    Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/xenial64"
     config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
     config.vm.synced_folder ".", "/var/www/html"  
