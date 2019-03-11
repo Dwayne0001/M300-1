@@ -125,7 +125,9 @@ Ich habe ein Web Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt 
     end
 
 Danach kann man in irgendeiner Bash mit Hilfe von Vagrant eine VM aufsetzen.
+
     vagrant up
+
 Mit diesem Befehl wird eine VM anhand des Vagrantfile erstellt.
 
 
