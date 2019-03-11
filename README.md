@@ -88,3 +88,56 @@ Hier sieht man die Help Page von Git:
     fetch      Download objects and refs from another repository
     pull       Fetch from and integrate with another repository or a local branch
     push       Update remote refs along with associated objects
+
+
+**Mark Down**
+Mark Down ist eine vereinfachte Auszeichnungssprache. Ein Ziel von Mark Down ist, dass schon die Ausgangsform ohne weitere Konvertierung leicht lesbar ist. Diese Dokumentation ist in der Mark Down Sprache geschrieben.
+
+
+**Systemsicherheit**
+Die Systemsicherheit kann man über verschiedene Methoden erhöhen:
+- Firewall einrichten und nur die nötigen Ports öffnen
+- Reverse-Proxy einrichten, so ist nur dieser vom Internet sichtbar und vom internen Netzwerk nichts.
+- Benutzer- und Rechtvergabe ist eingerichtet, sodass nur bestimmte Personen Adminrechte haben.
+
+Die Systemsicherheit ist ein sehr wichtiges Thema. In den grossen Firmen wird sehr viel Zeit und Geld in das investiert.
+
+
+## Vagrant
+Mit Vagrant setzen wir unsere VM automatisiert auf.
+
+Als erstes muss man ein Vagrant File erstellen. In diesem werden diverse Sachen festgelegt, wie zum Beispiel RAM grösse, welches Betriebssystem, etc.
+Ich habe ein Web Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
+
+    Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/xenial64"
+    config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
+    config.vm.synced_folder ".", "/var/www/html"  
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"  
+    end
+    config.vm.provision "shell", inline: <<-SHELL
+    # Packages vom lokalen Server holen
+    # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
+    sudo apt-get update
+    sudo apt-get -y install apache2 
+    SHELL
+    end
+
+Danach kann man in irgendeiner Bash mit Hilfe von Vagrant eine VM aufsetzen.
+    vagrant up
+Mit diesem Befehl wird eine VM anhand des Vagrantfile erstellt.
+
+
+**Vagrant Befehle**
+Hier sind noch weitere Vagrant Befehle:
+
+| Befehl                    | Beschreibung                                                      |
+| ------------------------- | ----------------------------------------------------------------- | 
+| `vagrant init`            | Initialisiert im aktuellen Verzeichnis eine Vagrant-Umgebung und erstellt, falls nicht vorhanden, ein Vagrantfile |
+| `vagrant up`              |  Erzeugt und Konfiguriert eine neue Virtuelle Maschine, basierend auf dem Vagrantfile |
+| `vagrant ssh`             | Baut eine SSH-Verbindung zur gewünschten VM auf                   |
+| `vagrant status`          | Zeigt den aktuellen Status der VM an                              |
+| `vagrant port`            | Zeigt die Weitergeleiteten Ports der VM an                        |
+| `vagrant halt`            | Stoppt die laufende Virtuelle Maschine                            |
+| `vagrant destroy`         | Stoppt die Virtuelle Maschine und zerstört sie.                   |
