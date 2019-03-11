@@ -107,7 +107,7 @@ Die Systemsicherheit ist ein sehr wichtiges Thema. In den grossen Firmen wird se
 Mit Vagrant setzen wir unsere VM automatisiert auf.
 
 Als erstes muss man ein Vagrant File erstellen. In diesem werden diverse Sachen festgelegt, wie zum Beispiel RAM grösse, welches Betriebssystem, etc.
-Ich habe ein Web Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
+Ich habe ein Web Server aufgesetzt und ein MySQL Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
 
     Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/xenial64"
@@ -121,6 +121,8 @@ Ich habe ein Web Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt 
     # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
     sudo apt-get update
     sudo apt-get -y install apache2 
+    sudo apt-get -y install mysql-server
+    sudo apt-get -y install php-mysql
     SHELL
     end
 
@@ -143,3 +145,4 @@ Hier sind noch weitere Vagrant Befehle:
 | `vagrant port`            | Zeigt die Weitergeleiteten Ports der VM an                        |
 | `vagrant halt`            | Stoppt die laufende Virtuelle Maschine                            |
 | `vagrant destroy`         | Stoppt die Virtuelle Maschine und zerstört sie.                   |
+
