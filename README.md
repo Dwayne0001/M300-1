@@ -146,3 +146,20 @@ Hier sind noch weitere Vagrant Befehle:
 | `vagrant halt`            | Stoppt die laufende Virtuelle Maschine                            |
 | `vagrant destroy`         | Stoppt die Virtuelle Maschine und zerstört sie.                   |
 
+
+**Testing**
+Wenn die VM richtig erstellt worden ist, sollte man jetzt unter de IP http://127.0.0.1:8080/ die Apache Standard Seite erreichen.
+
+
+##Sicherheit
+Ich habe einen Webserver und einen Datenbankserver aufgesetzt. Diese habe ich anhand eines bestehendem Vagrant File erstellt.
+
+**Firewall Rules**
+Danach habe ich auf dem Webserver den HTTP Port geöffnet
+    sudo ufw allow 80/tcp
+
+Auf dem Datenbankserver habe ich den MySQL Port für den Webserver geöffnet
+    sudo ufw allow from 192.168.55.101 to any port 3306
+
+Mit diesem Befehl habe ich dann kontrolliert, ob die Rules richtig erstellt wurden
+    sudo ufw status
