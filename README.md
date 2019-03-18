@@ -153,6 +153,8 @@ Wenn die VM richtig erstellt worden ist, sollte man jetzt unter de IP http://127
 
 ## Sicherheit
 Ich habe einen Webserver und einen Datenbankserver aufgesetzt. Diese habe ich anhand eines bestehendem Vagrant File erstellt.
+Für die Sicherheit habe ich zum einen eine Host Firewall konfiguriert. In dieser gebe ich definierte Ports an, welche offen sein sollten. Die anderen sind alle geschlossen. Dies aus dem Grund, da offene Ports, Eingänge für Hacker Angriffe sind.
+Zusätzlich habe ich noch einen Reverse-Proxy aufgesetzt. Dieser leitet eine URL auf einen bestimmten Server weiter. Dadurch kann man zum Beispiel mit verschiedenen URL's auf einen einzigen Server zugreifen.
 
 **Firewall Rules**
 Danach habe ich auf dem Webserver den HTTP Port geöffnet
