@@ -179,6 +179,7 @@ Dann musste ich die Apache config (/etc/apache2/apache2.conf) anpassen.
     ServerName localhost
 
 Die Weiterleitung wird in der Datei (etc/apache2/sites-enabled/001-reverseproxy.conf) angegeben.
+
     # Allgemeine Proxy Einstellungen
     ProxyRequests Off
     <Proxy *>
