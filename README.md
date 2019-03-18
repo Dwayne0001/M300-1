@@ -158,26 +158,32 @@ Zusätzlich habe ich noch einen Reverse-Proxy aufgesetzt. Dieser leitet eine URL
 
 **Firewall Rules**
 Danach habe ich auf dem Webserver den HTTP Port geöffnet
+
     sudo ufw allow 80/tcp
 
 Auf dem Datenbankserver habe ich den MySQL Port für den Webserver geöffnet
+
     sudo ufw allow from 192.168.55.101 to any port 3306
 
 Mit diesem Befehl habe ich dann kontrolliert, ob die Rules richtig erstellt wurden
+
     sudo ufw status
 
 
 **Reverse-Proxy**
 Für den Reverse-Proxy musste ich zwei Pakete installieren.
+
     sudo apt-get install lipapache2-mod-proxy-html
     sudo apt-get install libxml2-dev
 
 Danach musste ich die Module in Apache aktivieren.
+
     sudo a2enmond proxy
     sudo a2enmond proxy_html
     sudo a2enmond proxy_http
 
 Dann musste ich die Apache config (/etc/apache2/apache2.conf) anpassen.
+
     ServerName localhost
 
 Die Weiterleitung wird in der Datei (etc/apache2/sites-enabled/001-reverseproxy.conf) angegeben.
