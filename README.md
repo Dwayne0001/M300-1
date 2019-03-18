@@ -151,7 +151,7 @@ Hier sind noch weitere Vagrant Befehle:
 Wenn die VM richtig erstellt worden ist, sollte man jetzt unter de IP http://127.0.0.1:8080/ die Apache Standard Seite erreichen.
 
 
-##Sicherheit
+## Sicherheit
 Ich habe einen Webserver und einen Datenbankserver aufgesetzt. Diese habe ich anhand eines bestehendem Vagrant File erstellt.
 
 **Firewall Rules**
@@ -163,3 +163,30 @@ Auf dem Datenbankserver habe ich den MySQL Port für den Webserver geöffnet
 
 Mit diesem Befehl habe ich dann kontrolliert, ob die Rules richtig erstellt wurden
     sudo ufw status
+
+
+**Reverse-Proxy**
+Für den Reverse-Proxy musste ich zwei Pakete installieren.
+    sudo apt-get install lipapache2-mod-proxy-html
+    sudo apt-get install libxml2-dev
+
+Danach musste ich die Module in Apache aktivieren.
+    sudo a2enmond proxy
+    sudo a2enmond proxy_html
+    sudo a2enmond proxy_http
+
+Dann musste ich die Apache config (/etc/apache2/apache2.conf) anpassen.
+    ServerName localhost
+
+Die Weiterleitung wird in der Datei (etc/apache2/sites-enabled/001-reverseproxy.conf) angegeben.
+    # Allgemeine Proxy Einstellungen
+    ProxyRequests Off
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    # Weiterleitungen master
+    ProxyPass /master http://master
+    ProxyPassReverse /master http://master
+
