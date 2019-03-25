@@ -41,7 +41,7 @@ SaaS bezeichnet ein Distributionsmodell für Anwendungen über den Webbrowser. S
 
 
 **Vagrant**
-Vagrant brauchte ich in diesem Mdoul, um meine Virtuellen Maschienen automatisiert aufzusetzen und den gewünschten Service mit zu installieren. Vagrant ist eine Software, welche in BASH läuft. So kann ein Vagrant File aussehen:
+Vagrant brauchte ich in diesem Modul, um meine Virtuellen Maschienen automatisiert aufzusetzen und den gewünschten Service mit zu installieren. Vagrant ist eine Software, welche in BASH läuft. So kann ein Vagrant File aussehen:
 
     Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/xenial64"
@@ -106,6 +106,23 @@ Die Systemsicherheit ist ein sehr wichtiges Thema. In den grossen Firmen wird se
 ## Vagrant
 Mit Vagrant setzen wir unsere VM automatisiert auf.
 
+Als erste VM habe ich einen einfachen Webserver aufgesetzt. Für diesen sieht mein Vagrant File wie folgt aus:
+
+    Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/xenial64"
+    config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
+    config.vm.synced_folder ".", "/var/www/html"  
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"  
+    end
+    config.vm.provision "shell", inline: <<-SHELL
+  Packages vom lokalen Server holen
+  sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
+    sudo apt-get update
+    sudo apt-get -y install apache2
+    SHELL
+    end
+
 Als erstes muss man ein Vagrant File erstellen. In diesem werden diverse Sachen festgelegt, wie zum Beispiel RAM grösse, welches Betriebssystem, etc.
 Ich habe ein Web Server aufgesetzt und ein MySQL Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
 
@@ -148,7 +165,7 @@ Hier sind noch weitere Vagrant Befehle:
 
 
 **Testing**
-Wenn die VM richtig erstellt worden ist, sollte man jetzt unter de IP http://127.0.0.1:8080/ die Apache Standard Seite erreichen.
+Wenn die VM richtig erstellt worden ist, sollte man jetzt unter de IP http://127.0.0.1:8080/ die Apache Standard Seite erreichen. Ich kam erfolgreich auf die Seite.
 
 
 ## Sicherheit
