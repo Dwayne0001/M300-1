@@ -106,7 +106,7 @@ Die Systemsicherheit ist ein sehr wichtiges Thema. In den grossen Firmen wird se
 ## Vagrant
 Mit Vagrant setzen wir unsere VM automatisiert auf.
 
-Als erste VM habe ich einen einfachen Webserver aufgesetzt. Für diesen sieht mein Vagrant File wie folgt aus:
+Als erste VM habe ich einen einfachen Webserver aufgesetzt. Wenn man eine VM über Vagrant aufsetzt muss man zuerst ein Vagrant File erstellen. In diesem werden diverse Sachen festgelegt, wie zum Beispiel RAM grösse, welches Betriebssystem, etc. Für diesen sieht mein Vagrant File wie folgt aus:
 
     Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/xenial64"
@@ -123,8 +123,9 @@ Als erste VM habe ich einen einfachen Webserver aufgesetzt. Für diesen sieht me
     SHELL
     end
 
-Als erstes muss man ein Vagrant File erstellen. In diesem werden diverse Sachen festgelegt, wie zum Beispiel RAM grösse, welches Betriebssystem, etc.
-Ich habe ein Web Server aufgesetzt und ein MySQL Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
+Dieser Webserver war nachher über http://127.0.0.1 erreichbar.
+
+Danach habe ich noch eine zweite VM über Vagrant aufgesetzt. Ich habe ein Web Server aufgesetzt und ein MySQL Server aufgesetzt. Für diesen hat mein Vagrant File wie folgt ausgesehen:
 
     Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/xenial64"
