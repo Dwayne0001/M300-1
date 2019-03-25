@@ -116,8 +116,8 @@ Als erste VM habe ich einen einfachen Webserver aufgesetzt. Wenn man eine VM üb
     vb.memory = "512"  
     end
     config.vm.provision "shell", inline: <<-SHELL
-    Packages vom lokalen Server holen
-    sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
+    # Packages vom lokalen Server holen
+    # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
     sudo apt-get update
     sudo apt-get -y install apache2
     SHELL
@@ -220,7 +220,7 @@ Die Weiterleitung wird in der Datei (etc/apache2/sites-enabled/001-reverseproxy.
 
 ## Abschluss
 **Reflexion**
-Ich fand es ein sehr spannendes Projekt. Ich habe viele neue Programme kennengelernt, mit welchen ich sicherlich auch in Zukunft arbeiten werde. Automatisierung ist ein sehr grosses Thema in der Informatik und daher fand ich es gut, dass wir die ersten Berührungen mit dem machen konnten. In dieser LB lief bei mir eigenltich alles gut. Also ich hatte keine grossen Probleme. Dies sicherlich auch, weil auf dem GitHub alles sehr gut beschrieben war.
+Ich fand es ein sehr spannendes Projekt. Ich habe viele neue Programme kennengelernt, mit welchen ich sicherlich auch in Zukunft arbeiten werde. Automatisierung ist ein sehr grosses Thema in der Informatik und daher fand ich es gut, dass wir die ersten Berührungen mit dem machen konnten. In dieser LB lief bei mir eigenltich alles gut. Also ich hatte keine grossen Probleme. Dies sicherlich auch, weil auf dem GitHub alles sehr gut beschrieben war. Das einzige Problem, was ich hatte, war dass ich nur einen Webserver haben konnte. Sobald ich einen zweiten aufgesetzt habe, sind die beiden Weberver nicht mehr errichbar gewesen.
 
 **Wissenszuwachs**
 Ich konnte sehr viel Wissen dazu gewinnen. Vorallem im Thema automatisierung. Mit dem Tool Vagrant ist innerhalb von einer Minute eine ganze virtuelle Maschiene erstellt, dies erleichtert das Ganze sehr.
