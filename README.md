@@ -243,3 +243,34 @@ Virtual Box ist unsere Virtualisierungsumgebung. Dort werden unsere Virtuellen M
 
 **Visualstudio**
 Visualstudio brache ich für meine Markdown Dokumentation. Der Vorteil von Visualstudio ist, dass ich meine Dokumentation direkt auf das GitHub "pushen" kann.
+
+
+## K2
+
+**Containersierung**
+SIX
+
+**Docker**
+SIX
+
+
+## K3
+**Besthenden Container kombinieren**
+Zu Beginn habe ich einen Container erstellt, welcher einen Webserver beinhaltet.
+Ich habe diesen wie folgt erstellt:
+
+Als erstes muss man das Image erstellen.
+
+    docker build -t webserver .
+
+Kontrollieren, ob das Image erstellt worden ist kann man so
+
+    docker images
+
+Danach kann man den Container erstellen. Dafür muss man das Image angeben.
+
+    docker run --rm -d --name webserver webserver
+
+Mit folgendem Befehl kann man kontrollieren, ob der Container läuft.
+
+    docker ps
