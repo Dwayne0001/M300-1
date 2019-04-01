@@ -229,3 +229,17 @@ Ich konnte sehr viel Wissen dazu gewinnen. Vorallem im Thema automatisierung. Mi
 
 
 # LB3
+
+## K1
+
+**GitHub**
+GitHub brauchen wir für die Versionsverwaltung. Bei GitHub kann man Dokumente zentral hochladen und runterladen.
+
+**Vagrant**
+Vagrant ist die Software, mit welcher wir unsere Virtuellen Maschinen automatisiert aufsetzen können.
+
+**Virtual Box**
+Virtual Box ist unsere Virtualisierungsumgebung. Dort werden unsere Virtuellen Maschinen aufgesetzt und gespeichert.
+
+**Visualstudio**
+Visualstudio brache ich für meine Markdown Dokumentation. Der Vorteil von Visualstudio ist, dass ich meine Dokumentation direkt auf das GitHub "pushen" kann.
