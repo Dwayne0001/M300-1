@@ -282,6 +282,7 @@ Der Webserver war unter der URL:http://localhost:8080 erreichbar.
 
 
 **Docker Befehle**
+
 | Befehl                               | Beschreibung                                           |
 | -------------------------            | ------------------------------------------------------ | 
 | `docker build -t "image" .`          | Erstellt ein Image                                     |
