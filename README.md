@@ -274,3 +274,24 @@ Danach kann man den Container erstellen. Dafür muss man das Image angeben.
 Mit folgendem Befehl kann man kontrollieren, ob der Container läuft.
 
     docker ps
+
+Der Webserver war unter der URL:http://localhost:8080 erreichbar.
+
+
+**Volumen einrichten**
+
+
+**Docker Befehle**
+| Befehl                               | Beschreibung                                           |
+| -------------------------            | ------------------------------------------------------ | 
+| `docker build -t "image" .`          | Erstellt ein Image                                     |
+| `docker images`                      |  Zeigt die Images                                      |
+| `docker run --rm -d -- name "image"` | Erstellt einen Container anhand des Image              |
+| `docker ps`                          | Zeigt alle Container                                   |
+| `docker run --rm -d -P "container"`  | Vergibt den nächsten Port an den angegebenen Container |
+| `docker network ls`                  | Listet die Netzwerke auf                               |
+| `docker volume create "Name"`        | Erstellt ein Volumen                                   |
+| `docker volume ls`                   | Zeigt alle Volumen an                                  |
+| `docker search "name"`               | Sucht das gewünschte Image auf Docker Hub              |
+| `docker pull "name"`                 | Lädt das gewünschte Image herunter                     |
+
