@@ -300,8 +300,6 @@ Um zu kontrollieren, ob das Volume richtig erstellt wurde, kann man folgenden Be
 
     docker volume ls
 
-So habe ich das Volumen gemountet.
-
 
 **Docker Befehle**
 
