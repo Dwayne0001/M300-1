@@ -316,3 +316,33 @@ Um zu kontrollieren, ob das Volume richtig erstellt wurde, kann man folgenden Be
 | `docker search "name"`               | Sucht das gewünschte Image auf Docker Hub              |
 | `docker pull "name"`                 | Lädt das gewünschte Image herunter                     |
 
+
+## K4
+**cAdvisor**
+Als erste Service-Überwachung habe ich den cAdvisor implementiert.
+Diesen habe ich wie folgt heruntergeladen:
+
+    docker run -d --name cadvisor -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro -p 8080:8080 google/cadvisor:latest
+
+Danach war er über http://localhost:8080 erreichbar.
+
+**Standard-Logging**
+Als erstes habe ich einen einfachen Test erstellt. Dieser gibt jede Sekunde ein "Tick" aus.
+
+    docker run -d --name "Test" ubuntu bash -c 'while true; do echo "tick"; sleep 1; done;'
+
+Das Log des laufenden Test kann so angezeigt werden.
+
+    docker logs "Test"
+
+Den Test kann man wie folgt wieder löschen.
+    docker rm "Test"
+
+**Syslog**
+Zuerst habe ich auch hier einen Test laufen gelassen.
+
+    docker run -d --log-driver=syslog ubuntu bash -c 'i=0; while true; do i=$((i+1)); echo "docker $i"; sleep 1; done;'
+
+Es wurde alles im Syslog(/var/log/syslog) geloggt.
+
+    tail -f /var/log/syslog
