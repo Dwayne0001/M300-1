@@ -248,7 +248,20 @@ Visualstudio brache ich für meine Markdown Dokumentation. Der Vorteil von Visua
 ## K2
 
 **Containersierung**
-SIX
+Was ist ein Container?
+
+Ein Linux Container ist ein Satz an Prozessen, die vom Rest des Systems isoliert sind und auf einem eigenen Image ausgeführt werden, das alle benötigten Dateien zur Unterstützung der Prozesse bereitstellt. Durch Bereitstellung eines Image, das alle Abhängigkeiten einer Anwendung enthält, ist er portabel und bleibt konsistent und lässt sich so problemlos von der Entwicklung über die Prüfung und schließlich in die Produktion überführen.
+
+Container vs. Virtualisierung
+Container
+
+Container teilen sich den gleichen Betriebssystem-Kernel und isolieren die Anwendungsprozesse vom Rest des Systems. 
+
+Virtualisierung
+
+Die Virtualisierung ermöglicht, dass mehrere Betriebssysteme gleichzeitig auf einem einzigen System laufen.
+
+Was bedeutet das? Erst einmal: Mehrere Betriebssysteme auf einem Hypervisor laufen zu lassen – der Software, die Virtualisierung möglich macht – belastet das System mehr als die Verwendung von Containern. Wenn Sie nur über endliche Ressourcen mit endlichen Fähigkeiten verfügen, benötigen Sie kompakte Apps, die in großer Dichte eingesetzt werden können. Linux-Container arbeiten aus diesem einzelnen Betriebssystem heraus und nutzen es gemeinsam für alle Ihre Container. So bleiben Ihre Apps und Dienste leicht und können zügig parallel laufen.
 
 **Docker**
 SIX
@@ -279,6 +292,15 @@ Der Webserver war unter der URL:http://localhost:8080 erreichbar.
 
 
 **Volumen einrichten**
+So erstellt man ein Volumen.
+
+    docker volume create "Name"
+
+Um zu kontrollieren, ob das Volume richtig erstellt wurde, kann man folgenden Befehl eingeben und alle Volumen werden angezeigt.
+
+    docker volume ls
+
+So habe ich das Volumen gemountet.
 
 
 **Docker Befehle**
@@ -286,7 +308,7 @@ Der Webserver war unter der URL:http://localhost:8080 erreichbar.
 | Befehl                               | Beschreibung                                           |
 | -------------------------            | ------------------------------------------------------ | 
 | `docker build -t "image" .`          | Erstellt ein Image                                     |
-| `docker images`                      |  Zeigt die Images                                      |
+| `docker images`                      | Zeigt die Images                                       |
 | `docker run --rm -d -- name "image"` | Erstellt einen Container anhand des Image              |
 | `docker ps`                          | Zeigt alle Container                                   |
 | `docker run --rm -d -P "container"`  | Vergibt den nächsten Port an den angegebenen Container |
