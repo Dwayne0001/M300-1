@@ -354,3 +354,26 @@ Ich habe im meinem Geschäft schon sehr viel von Container gehört, hatte aber n
 
 **Reflexion**
 Wie schon oben erwähnt konnte ich sehr viel über das Thema Containern mitnehmen. Da Container ein sehr wichtiges Thema ist, was in der Zukunft noch eine viel grössere Rolle spielen wird, finde ich es gut, dass ich jetzt schon einiges darüber weiss. Die LB3 war sehr gut aufgebaut, sodass man viel mitnehmen konnte.
+
+
+## K6
+**Kubernetes**
+Zuerst musste ich einen Namespace erstellen
+
+    kubectl create namespace jan
+
+Danach habe ich denn Service erstellt
+    
+    kubectl run apache --image=httpd --restart=Never --namespace jan
+
+Anschliessend habe ich die YAML Datei mit dem Ergebniss erzeugt
+
+    kubectl get service apache -o yaml --namespace jan
+
+Zusätzlich musste ich noch den richitgen Port öffnen
+
+    kubectl expose pod/apache --type="LoadBalancer" --port 80 --namespace jan
+
+Schlussendlich konnte man kontrollieren, ob der Service auch erstellt wurde
+
+    kubectl get service apache -o yaml --namespace jan
