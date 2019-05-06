@@ -268,6 +268,7 @@ Docker ist eine Produkt, für die Container Implementierung. Es verpackt den Ser
 
 
 ## K3
+
 **Besthenden Container kombinieren**
 Zu Beginn habe ich einen Container erstellt, welcher einen Webserver beinhaltet.
 Ich habe diesen wie folgt erstellt:
@@ -318,6 +319,7 @@ Um zu kontrollieren, ob das Volume richtig erstellt wurde, kann man folgenden Be
 
 
 ## K4
+
 **cAdvisor**
 Als erste Service-Überwachung habe ich den cAdvisor implementiert.
 Diesen habe ich wie folgt heruntergeladen:
@@ -349,6 +351,7 @@ Es wurde alles im Syslog(/var/log/syslog) geloggt.
 
 
 ## K5
+
 **Vergleich Vorwissen - Wissenszuwachs**
 Ich habe im meinem Geschäft schon sehr viel von Container gehört, hatte aber nicht gross eine Ahnung wie das ganze funktioniert. In diesem Modul habe ich einen sehr grossen Einblich in das Thema bekommen. Ich denke ich habe die einfachen Grundlagen von Containern verstanden.
 
@@ -357,6 +360,7 @@ Wie schon oben erwähnt konnte ich sehr viel über das Thema Containern mitnehme
 
 
 ## K6
+
 **Kubernetes**
 Zuerst musste ich einen Namespace erstellen
 
