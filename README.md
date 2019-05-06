@@ -346,3 +346,11 @@ Zuerst habe ich auch hier einen Test laufen gelassen.
 Es wurde alles im Syslog(/var/log/syslog) geloggt.
 
     tail -f /var/log/syslog
+
+
+## K5
+**Vergleich Vorwissen - Wissenszuwachs**
+Ich habe im meinem Geschäft schon sehr viel von Container gehört, hatte aber nicht gross eine Ahnung wie das ganze funktioniert. In diesem Modul habe ich einen sehr grossen Einblich in das Thema bekommen. Ich denke ich habe die einfachen Grundlagen von Containern verstanden.
+
+**Reflexion**
+Wie schon oben erwähnt konnte ich sehr viel über das Thema Containern mitnehmen. Da Container ein sehr wichtiges Thema ist, was in der Zukunft noch eine viel grössere Rolle spielen wird, finde ich es gut, dass ich jetzt schon einiges darüber weiss. Die LB3 war sehr gut aufgebaut, sodass man viel mitnehmen konnte.
