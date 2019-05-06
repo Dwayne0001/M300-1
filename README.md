@@ -264,7 +264,7 @@ Die Virtualisierung ermöglicht, dass mehrere Betriebssysteme gleichzeitig auf e
 Was bedeutet das? Erst einmal: Mehrere Betriebssysteme auf einem Hypervisor laufen zu lassen – der Software, die Virtualisierung möglich macht – belastet das System mehr als die Verwendung von Containern. Wenn Sie nur über endliche Ressourcen mit endlichen Fähigkeiten verfügen, benötigen Sie kompakte Apps, die in großer Dichte eingesetzt werden können. Linux-Container arbeiten aus diesem einzelnen Betriebssystem heraus und nutzen es gemeinsam für alle Ihre Container. So bleiben Ihre Apps und Dienste leicht und können zügig parallel laufen.
 
 **Docker**
-SIX
+Docker ist eine Produkt, für die Container Implementierung. Es verpackt den Service mit allen Abhängigkeiten in Container. Diese Container kann man dann individuell starten und stoppen.
 
 
 ## K3
